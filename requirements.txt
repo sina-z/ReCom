@@ -1,0 +1,88 @@
+# ============================================================================
+# ReCom - Python Dependencies
+# ============================================================================
+# This file lists all Python packages required for this project.
+# Install all dependencies with: pip install -r requirements.txt
+#
+# Organization:
+# - Core data processing libraries
+# - Visualization libraries
+# - Development and exploration tools
+# - Phase-specific dependencies (added as we progress)
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# PHASE 0: Data Acquisition and Exploration
+# ----------------------------------------------------------------------------
+
+# Data manipulation and analysis
+numpy==1.26.4              # Numerical computing, array operations
+pandas==2.2.0              # Data structures (DataFrames), data analysis
+scipy==1.12.0              # Scientific computing, statistical functions
+
+# Data visualization
+matplotlib==3.8.2          # Basic plotting and visualization
+seaborn==0.13.2            # Statistical data visualization (built on matplotlib)
+
+# Jupyter environment for interactive exploration
+jupyter==1.0.0             # Jupyter notebook interface
+ipython==8.21.0            # Enhanced Python interactive shell
+notebook==7.0.7            # Jupyter notebook server
+
+# Data handling utilities
+python-dateutil==2.8.2     # Date/time parsing and manipulation
+pytz==2024.1               # Timezone handling
+
+# ----------------------------------------------------------------------------
+# PHASE 1: Basic Recommendation Algorithm (to be uncommented when needed)
+# ----------------------------------------------------------------------------
+# scikit-learn==1.4.0      # Machine learning algorithms, train/test split
+# scikit-surprise==1.1.3   # Recommendation system algorithms (collaborative filtering)
+
+# ----------------------------------------------------------------------------
+# PHASE 2: Experiment Tracking (to be uncommented when needed)
+# ----------------------------------------------------------------------------
+# mlflow==2.10.2           # ML experiment tracking and model registry
+
+# ----------------------------------------------------------------------------
+# PHASE 3: Model Serving API (to be uncommented when needed)
+# ----------------------------------------------------------------------------
+# fastapi==0.109.2         # Modern web framework for building APIs
+# uvicorn==0.27.1          # ASGI server for FastAPI
+# pydantic==2.6.1          # Data validation using Python type hints
+# python-multipart==0.0.9  # Form data parsing for FastAPI
+
+# ----------------------------------------------------------------------------
+# PHASE 4+: Deployment and Production (to be uncommented when needed)
+# ----------------------------------------------------------------------------
+# gunicorn==21.2.0         # Production WSGI server
+# redis==5.0.1             # Caching layer for recommendations
+# python-dotenv==1.0.1     # Environment variable management
+
+# ----------------------------------------------------------------------------
+# Development and Testing (optional, add as needed)
+# ----------------------------------------------------------------------------
+# pytest==8.0.0            # Testing framework
+# black==24.1.1            # Code formatter
+# flake8==7.0.0            # Linting tool
+# mypy==1.8.0              # Static type checker
+
+# ============================================================================
+# NOTES:
+# ============================================================================
+# 1. Version pinning: We pin exact versions (==) for reproducibility
+#    - This ensures the project works the same way on all machines
+#    - Update versions consciously when needed
+#
+# 2. Virtual environment: ALWAYS use a virtual environment to avoid conflicts
+#    - python -m venv venv
+#    - source venv/bin/activate (macOS/Linux) or venv\Scripts\activate (Windows)
+#
+# 3. Updating this file: When you add new packages, run:
+#    - pip freeze > requirements.txt (captures all installed packages)
+#    - OR manually add the package with version
+#
+# 4. Python version: This project uses Python 3.13.0
+#    - Some packages may have compatibility notes for newer Python versions
+#    - Check package documentation if you encounter installation issues
+# ============================================================================

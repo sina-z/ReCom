@@ -1,0 +1,235 @@
+# ============================================================================
+# ReCom - Git Ignore File
+# ============================================================================
+# This file tells git which files and folders to IGNORE (not track/commit)
+# 
+# WHY: Some files shouldn't be in version control:
+# - Large data files (datasets can be GBs)
+# - Sensitive information (API keys, passwords)
+# - Generated files (compiled code, models)
+# - Personal configurations (IDE settings)
+# - Dependencies (other developers will install their own)
+#
+# STRUCTURE: Organized by category for easy understanding
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# PYTHON - Compiled and Runtime Files
+# ----------------------------------------------------------------------------
+# WHY: These are generated when Python runs and can be recreated
+__pycache__/              # Compiled Python files directory
+*.py[cod]                 # .pyc, .pyo, .pyd files (compiled Python)
+*$py.class                # Java-style class files
+
+# C extensions
+*.so                      # Shared object files (compiled C extensions)
+
+# Distribution / packaging
+.Python                   # Python environment metadata
+build/                    # Build artifacts
+develop-eggs/             # Development egg files
+dist/                     # Distribution packages
+downloads/                # Downloaded packages
+eggs/                     # Python eggs (legacy packaging)
+.eggs/                    # Egg metadata
+lib/                      # Library files
+lib64/                    # 64-bit library files
+parts/                    # Buildout parts
+sdist/                    # Source distribution
+var/                      # Variable data
+wheels/                   # Wheel distributions
+*.egg-info/               # Package metadata
+.installed.cfg            # Installation configuration
+*.egg                     # Python egg files
+MANIFEST                  # Manifest file
+
+# ----------------------------------------------------------------------------
+# VIRTUAL ENVIRONMENTS
+# ----------------------------------------------------------------------------
+# WHY: Each developer creates their own environment; don't share it
+venv/                     # Standard virtual environment name
+env/                      # Alternative venv name
+ENV/                      # Another common name
+env.bak/                  # Backup environment
+venv.bak/                 # Backup venv
+
+# ----------------------------------------------------------------------------
+# DATA FILES - CRITICAL FOR ML PROJECTS
+# ----------------------------------------------------------------------------
+# WHY: Datasets are often HUGE (GBs) and shouldn't be in git
+# BEST PRACTICE: Store data elsewhere (cloud storage, data lake)
+data/raw/*                # Raw datasets
+data/processed/*          # Processed datasets
+*.csv                     # CSV files (can be large)
+*.tsv                     # Tab-separated files
+*.parquet                 # Parquet files (columnar storage)
+*.pkl                     # Pickle files (serialized data)
+*.pickle                  # Alternative pickle extension
+*.h5                      # HDF5 files (hierarchical data)
+*.hdf5                    # Alternative HDF5 extension
+*.db                      # Database files
+*.sqlite                  # SQLite database files
+*.sqlite3                 # SQLite3 database files
+
+# EXCEPTION: Keep data README files to document data sources
+!data/README.md           # Keep this file
+!data/raw/README.md       # Keep this file
+!data/processed/README.md # Keep this file
+
+# ----------------------------------------------------------------------------
+# MODEL FILES - TRAINED MODELS CAN BE LARGE
+# ----------------------------------------------------------------------------
+# WHY: Trained models can be hundreds of MBs to GBs
+# BEST PRACTICE: Store in model registry (MLflow) or cloud storage
+models/*.pkl              # Pickled models
+models/*.h5               # Keras/TensorFlow models
+models/*.pt               # PyTorch models
+models/*.pth              # PyTorch checkpoint files
+models/*.ckpt             # TensorFlow checkpoint files
+models/*.pb               # Protocol buffer models
+models/*.onnx             # ONNX format models
+*.joblib                  # Joblib serialized models
+
+# EXCEPTION: Keep models README
+!models/README.md         # Keep this file
+
+# ----------------------------------------------------------------------------
+# JUPYTER NOTEBOOKS - Checkpoints and Outputs
+# ----------------------------------------------------------------------------
+# WHY: Jupyter creates hidden checkpoint files automatically
+.ipynb_checkpoints/       # Jupyter notebook checkpoints
+*/.ipynb_checkpoints/*    # Checkpoints in subdirectories
+
+# OPTIONAL: Uncomment if you don't want to commit notebook outputs
+# This keeps notebooks clean in git but loses output visualization
+# *.ipynb                 # Ignore all notebooks (CAREFUL!)
+# Use 'nbstripout' tool instead for better control
+
+# ----------------------------------------------------------------------------
+# ENVIRONMENT VARIABLES AND SECRETS
+# ----------------------------------------------------------------------------
+# WHY: These contain sensitive information (API keys, passwords)
+# NEVER commit secrets to git!
+.env                      # Environment variables file
+.env.local                # Local environment overrides
+.env.*.local              # Environment-specific local files
+*.key                     # Key files
+*.pem                     # PEM certificate files
+*.p12                     # PKCS12 certificate files
+secrets.yml               # Secrets configuration
+secrets.json              # Secrets in JSON format
+credentials.json          # API credentials
+
+# ----------------------------------------------------------------------------
+# IDE AND EDITOR FILES
+# ----------------------------------------------------------------------------
+# WHY: These are personal preferences, each developer uses different tools
+
+# PyCharm
+.idea/                    # PyCharm project files
+*.iml                     # IntelliJ module files
+
+# VS Code
+.vscode/                  # VS Code settings
+*.code-workspace          # VS Code workspace files
+
+# Sublime Text
+*.sublime-project         # Sublime project file
+*.sublime-workspace       # Sublime workspace file
+
+# Vim
+*.swp                     # Vim swap files
+*.swo                     # Vim swap files
+*~                        # Backup files
+
+# Emacs
+\#*\#                     # Emacs autosave files
+.\#*                      # Emacs lock files
+
+# ----------------------------------------------------------------------------
+# OPERATING SYSTEM FILES
+# ----------------------------------------------------------------------------
+# WHY: OS generates these automatically; they're not project files
+
+# macOS
+.DS_Store                 # macOS folder metadata
+.AppleDouble              # Resource fork files
+.LSOverride               # Launch Services override
+._*                       # macOS resource forks
+
+# Windows
+Thumbs.db                 # Windows thumbnail cache
+Thumbs.db:encryptable     # Encrypted thumbnail cache
+ehthumbs.db               # Explorer thumbnail cache
+ehthumbs_vista.db         # Vista thumbnail cache
+Desktop.ini               # Folder configuration
+$RECYCLE.BIN/             # Windows recycle bin
+
+# Linux
+.directory                # KDE directory preferences
+.Trash-*                  # Trash folder
+
+# ----------------------------------------------------------------------------
+# TESTING AND COVERAGE
+# ----------------------------------------------------------------------------
+# WHY: Test results and coverage reports are generated, not source code
+.pytest_cache/            # Pytest cache
+.coverage                 # Coverage results
+htmlcov/                  # HTML coverage reports
+.tox/                     # Tox testing tool
+.nox/                     # Nox testing tool
+coverage.xml              # Coverage XML report
+*.cover                   # Coverage data files
+.hypothesis/              # Hypothesis testing data
+
+# ----------------------------------------------------------------------------
+# LOGGING AND TEMPORARY FILES
+# ----------------------------------------------------------------------------
+# WHY: Logs are generated at runtime; temp files are disposable
+*.log                     # Log files
+logs/                     # Log directory
+*.tmp                     # Temporary files
+*.temp                    # Temporary files
+tmp/                      # Temp directory
+temp/                     # Temp directory
+
+# ----------------------------------------------------------------------------
+# DOCKER (Phase 4+)
+# ----------------------------------------------------------------------------
+# WHY: Docker generates these; they're machine-specific
+# docker-compose.override.yml  # Local docker-compose overrides (uncomment later)
+
+# ----------------------------------------------------------------------------
+# ML/DATA SCIENCE SPECIFIC
+# ----------------------------------------------------------------------------
+# Experiment tracking
+mlruns/                   # MLflow experiment tracking data
+.mlflow/                  # MLflow configuration
+
+# Tensorboard
+runs/                     # TensorBoard logs
+tensorboard/              # TensorBoard data
+
+# Weights & Biases (if used)
+wandb/                    # W&B logs and cache
+
+# DVC (Data Version Control, if used)
+# .dvc/                   # DVC cache (uncomment if using DVC)
+
+# ----------------------------------------------------------------------------
+# DOCUMENTATION BUILD FILES
+# ----------------------------------------------------------------------------
+# WHY: Documentation can be regenerated from source
+docs/_build/              # Sphinx documentation build
+docs/_static/             # Static documentation assets
+docs/_templates/          # Documentation templates
+site/                     # MkDocs site build
+
+# ============================================================================
+# MAINTENANCE NOTES:
+# ============================================================================
+# 1. Use 'git status' to verify ignored files are working correctly
+# 2. Use 'git check-ignore -v filename' to see why a file is ignored
+# 3. Add project-specific ignores as you discover them
+# 4. Comment your additions so others understand why files are ignored
+# ============================================================================
